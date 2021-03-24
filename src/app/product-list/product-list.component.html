@@ -1,7 +1,8 @@
 
 
-<h2>Products</h2>
-<div *ngFor ="let product of products; index as productId">
+<h2>Our PET</h2>
+<!-- <div *ngFor ="let product of products; index as productId">
+    <img src="{{product.img}}"/>
     <h3>
         <a routerLink="products/{{productId}}">
          {{product.name}}
@@ -11,4 +12,26 @@
     <p *ngIf ="product.description">
     Discription:{{product.description}}
     </p>
-</div>
+</div> -->
+<div class="row row-cols-1 row-cols-md-2  row-cols-md-4  g-2 ">
+<div class="col"*ngFor ="let product of products; index as productId">
+    <div class="card h-100 own_card ">
+        <img class="img-fluid own" src="{{product.img}}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h3>
+                <a routerLink="products/{{productId}}">
+                 {{product.name}}
+                </a>
+              
+            </h3>    
+        <!-- <p *ngIf ="product.description" class="card-text">{{product.description}}</p> -->
+        <!-- <button type="button" class="btn btn-outline-success" >info</button> -->
+    </div> 
+    <div class="card-footer">
+
+     <small class="text-muted">price :{{product.price}}  € </small>
+    </div>
+            </div>
+        </div>
+
+            </div>

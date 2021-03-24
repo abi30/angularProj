@@ -11,8 +11,9 @@ import {products} from '../products';
 export class ProductDetailsComponent implements OnInit {
 
 
-  product:any;
-  index:any;
+  // product:any;
+  // index:any;
+  product:{img:string;name:string; price:number; description?:string};
   
 
   constructor(private route: ActivatedRoute,private cartService: CartService) { }
@@ -28,9 +29,15 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit():void{
 
-     this.index=this.route.snapshot.params.productId;
-     this.product = products[+this.index];
-  
-  }
+    //  this.index=this.route.snapshot.params.productId;
+    //  this.product = products[+this.index];
 
+    this.route.paramMap.subscribe(params => {
+
+      this.product = products[+params.get('productId')];
+    //   this.product=products[this.route.snapshot.params.get("productId")];
+ 
+    });
+  }
 }
+
